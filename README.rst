@@ -15,6 +15,13 @@ Dependencies
 
 - `lxml http://codespeak.net/lxml/` 
 
+Installation
+============
+
+::
+
+  pip install lxml-wrapper
+
 Examples
 ========
 

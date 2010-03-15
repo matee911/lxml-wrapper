@@ -45,6 +45,8 @@ root = E('root', atr=100).add(
        )
 """
 
+__VERSION__ = '0.1b'
+
 from lxml import etree
 
 def E(_tag, attrib=None, nsmap=None, **_extra):
