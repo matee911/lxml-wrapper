@@ -21,6 +21,8 @@ Examples
 XML
 ---
 
+::
+
   <root atr="100">
     text1
     <child atr="atr">
@@ -35,6 +37,8 @@ XML
 Old way
 -------
 
+::
+
   root = Element('root', atr=str(100))
   root.text = 'text1'
   child = SubElement(root, 'child', atr="atr")
@@ -48,6 +52,8 @@ Old way
 
 New way
 -------
+
+::
 
   root = E('root', atr=100).add(
            'text1',
