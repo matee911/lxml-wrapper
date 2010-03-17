@@ -10,6 +10,25 @@ About
 
 This wrapper simplifies your Python xml generation code.
 
+Changes
+=======
+
+add_if
+------
+
+::
+
+  E('root').add_if(1==1, E('child')) # <root><child /></root>
+  E('root').add_if(1==0, E('child')) # <root/>
+
+add_for
+-------
+
+::
+
+  E('root').add_for([1,2], lambda item: E('item', attr=item)) # <root><item attr="1"/><item attr="2"/></root>
+
+
 Dependencies
 ============
 

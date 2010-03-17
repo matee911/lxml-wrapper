@@ -4,11 +4,11 @@ from distutils.core import setup
 # http://pypi.python.org/pypi?%3Aaction=list_classifiers
 setup(name='lxml-wrapper',
       description='lxml wrapper that simplifies xml generation code.',
-      keywords='lxml wrapper',
-      version='0.2.1b',
+      keywords='lxml wrapper dsl',
+      version='0.3',
       license='BSD',
       url='http://github.com/matee911/lxml-wrapper', # home page for the package
-      download_url='http://download.github.com/matee911-lxml-wrapper-5c40170.tar.gz',
+      download_url='http://download.github.com/matee911-lxml-wrapper-3feed3a.zip',
       author='Mateusz `matee` Pawlik',
       author_email='matee@matee.net',
       long_description='''
@@ -39,6 +39,15 @@ setup(name='lxml-wrapper',
       child = SubElement(root, 'child', attrib=value or "") # change None to empty string
       child.text = 'childtext'
       child.tail = 'tail'
+      
+      
+      Now with .add_if and .add_for methods:
+      
+      E('root').add_if(1==1, E('child')) -> <root><child /></root>
+      
+      E('root').add_if(1==0, E('child')) -> <root/>
+      
+      E('root').add_for([1,2], lambda item: E('item', attr=item)) -> <root><item attr="1"/><item attr="2"/></root>
       
       ''',
       requires=['lxml'],
