@@ -45,7 +45,7 @@ root = E('root', atr=100).add(
        )
 """
 
-__VERSION__ = '0.3'
+__VERSION__ = '0.3.2'
 
 from lxml import etree
 
@@ -97,6 +97,8 @@ class _E(etree.ElementBase):
         text_elems = []
         
         for elem in elements:
+            if elem is None: # we don't like nones
+                continue
             
             if not isinstance(elem, (basestring, int, long, float)):
                 # we have elemettree
@@ -121,6 +123,9 @@ class _E(etree.ElementBase):
                     elem = str(elem)
                 text_elems.append(elem)
         else:
+            if elem is None: # we don't like nones
+                return self
+            
             if not isinstance(elem, (basestring, int, long, float)):
                 # last element isn't string
                 # so we shoud append it

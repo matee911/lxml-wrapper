@@ -5,10 +5,10 @@ from distutils.core import setup
 setup(name='lxml-wrapper',
       description='lxml wrapper that simplifies xml generation code.',
       keywords='lxml wrapper dsl',
-      version='0.3',
+      version='0.3.2',
       license='BSD',
       url='http://github.com/matee911/lxml-wrapper', # home page for the package
-      download_url='http://download.github.com/matee911-lxml-wrapper-3feed3a.zip',
+      download_url='http://download.github.com/matee911-lxml-wrapper-de167e2.zip',
       author='Mateusz `matee` Pawlik',
       author_email='matee@matee.net',
       long_description='''

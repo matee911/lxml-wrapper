@@ -41,6 +41,11 @@ class TestAddElement(unittest.TestCase):
         s = '<root><child1/><child2/><child3/></root>'
         self.assertEqual(to_s(e), s)
         
+    def test_add_none(self):
+        e = E('root').add(None)
+        s = '<root/>'
+        self.assertEqual(to_s(e), s)
+        
     def test_add_text(self):
         e = E('root').add('text')
         s = '<root>text</root>'
