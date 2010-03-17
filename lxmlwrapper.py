@@ -45,7 +45,7 @@ root = E('root', atr=100).add(
        )
 """
 
-__VERSION__ = '0.1b'
+__VERSION__ = '0.2.1b'
 
 from lxml import etree
 
@@ -59,7 +59,7 @@ def SE(elem, _tag, attrib=None, nsmap=None, **_extra):
     
 def _make_elem(_tag, attrib=None, nsmap=None, **_extra):
     for k,v in _extra.items():
-        if isinstance(v, (int, )):
+        if isinstance(v, (int, long, float)):
             v = str(v)
         elif v is None:
             v = ''
@@ -73,11 +73,22 @@ def _make_elem(_tag, attrib=None, nsmap=None, **_extra):
 
 class _E(etree.ElementBase):
     
+    def add_if(self, condition, * elements):
+        """Conditional add.
+        
+        Add given elements only if condition is true.
+        """
+        if condition:
+            return self.add(* elements)
+        else:
+            return self
+            
+    def add_for(self, iterable, fun=lambda item: item):
+        self.add(*[fun(item) for item in iterable])
+        return self
+    
     def add(self, * elements):
-        """You can add ElementTrees or strings."""
-        # .add(E1, E2)
-        # .add(T1, T2)
-        # .add(T1, E1, T2, T3)
+        """You can add ElementTrees or strings or even integers now."""
         
         if not elements: # .add()
             return self
@@ -87,7 +98,7 @@ class _E(etree.ElementBase):
         
         for elem in elements:
             
-            if not isinstance(elem, basestring):
+            if not isinstance(elem, (basestring, int, long, float)):
                 # we have elemettree
                 if prev_elem is not None:
                     # because we have previous elem
@@ -106,9 +117,11 @@ class _E(etree.ElementBase):
             else:
                 # we have some text
                 # so we can store it for later
+                if isinstance(elem, int, long, float):
+                    elem = str(elem)
                 text_elems.append(elem)
         else:
-            if not isinstance(elem, basestring):
+            if not isinstance(elem, (basestring, int, long, float)):
                 # last element isn't string
                 # so we shoud append it
                 self.append(elem)

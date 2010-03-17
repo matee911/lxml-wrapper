@@ -5,7 +5,7 @@ from distutils.core import setup
 setup(name='lxml-wrapper',
       description='lxml wrapper that simplifies xml generation code.',
       keywords='lxml wrapper',
-      version='0.1b',
+      version='0.2.1b',
       license='BSD',
       url='http://github.com/matee911/lxml-wrapper', # home page for the package
       download_url='http://download.github.com/matee911-lxml-wrapper-5c40170.tar.gz',
