@@ -103,6 +103,15 @@ class TestRandomComplexExamples(unittest.TestCase):
         s = '<root atr="100">text1<child atr="atr"><superchild atr="">sctext1</superchild>tail1tail2</child>tail<child atr="">text</child></root>'
         self.assertEqual(to_s(e), s)
     
-    
+class TestPrettyPrint(unittest.TestCase):
+    def test_pretty_print(self):
+        e = E('root').add(E('child'))
+        s = """<root>
+  <child/>
+</root>
+"""
+        self.assertEqual(to_s(e, pretty_print=True), s)
+        
+        
 if __name__ == '__main__':
     unittest.main()

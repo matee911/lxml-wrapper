@@ -105,7 +105,8 @@ class _E(etree.ElementBase):
                 if prev_elem is not None:
                     # because we have previous elem
                     # we could append it now
-                    prev_elem.tail = "".join(text_elems)
+                    if text_elems:
+                        prev_elem.tail = "".join(text_elems)
                     self.append(prev_elem)
                     text_elems = []
                 else:
@@ -113,7 +114,8 @@ class _E(etree.ElementBase):
                     # so we shoud join together text_elems
                     # assign them to self.text
                     # and clear
-                    self.text = "".join(text_elems)
+                    if text_elems:
+                        self.text = "".join(text_elems)
                     text_elems = []
                 prev_elem = elem
             else:
@@ -134,11 +136,13 @@ class _E(etree.ElementBase):
                 # last element isn't element tree
                 # so we should do something
                 if prev_elem is not None:
-                    prev_elem.tail = "".join(text_elems)
+                    if text_elems:
+                        prev_elem.tail = "".join(text_elems)
                     self.append(prev_elem)
                     text_elems = []
                 else:
-                    self.text = "".join(text_elems)
+                    if text_elems:
+                        self.text = "".join(text_elems)
                     text_elems = []
         
         return self
