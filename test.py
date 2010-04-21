@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from lxmlwrapper import E, etree
+from lxmlwrapper import E, SE, etree
 
 to_s = etree.tostring
 
@@ -85,6 +85,29 @@ class TestAddElement(unittest.TestCase):
         e = E('root').add('text1', 'text2', E('child'), 'tail1', 'tail2')
         s = '<root>text1text2<child/>tail1tail2</root>'
         self.assertEqual(to_s(e), s)
+
+class TestSE(unittest.TestCase):
+    """Testing subelement
+    """
+    def test_add(self):
+        e = E('root')
+        se = SE(e,'child')
+        s = '<root><child/></root>'
+        self.assertEqual(to_s(e), s)
+
+    def test_add_with_text(self):
+        e = E('root')
+        se = SE(e,'child').add('text')
+        s = '<root><child>text</child></root>'
+        self.assertEqual(to_s(e), s)
+
+    def test_add_with_elems(self):
+        e = E('root')
+        se = SE(e,'child').add(E('child2'))
+        s = '<root><child><child2/></child></root>'
+        self.assertEqual(to_s(e), s)
+
+
         
 class TestRandomComplexExamples(unittest.TestCase):
     def test_complex(self):
@@ -114,4 +137,5 @@ class TestPrettyPrint(unittest.TestCase):
         
         
 if __name__ == '__main__':
+    
     unittest.main()
