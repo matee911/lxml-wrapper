@@ -45,7 +45,7 @@ root = E('root', atr=100).add(
        )
 """
 
-__VERSION__ = '0.3.2'
+__VERSION__ = '0.3.4'
 
 from lxml import etree
 
@@ -55,7 +55,7 @@ def E(_tag, attrib=None, nsmap=None, **_extra):
 def SE(elem, _tag, attrib=None, nsmap=None, **_extra):
     e = _make_elem(_tag, attrib, nsmap, **_extra)
     elem.append(e)
-    return elem
+    return e
     
 def _make_elem(_tag, attrib=None, nsmap=None, **_extra):
     for k,v in _extra.items():
