@@ -5,6 +5,10 @@ lxml-wrapper
 :Info: See `github <http://github.com/matee911/lxml-wrapper/>`_ for the latest source.
 :Author: matee
 
+.. image:: https://travis-ci.org/matee911/lxml-wrapper.png
+    :target: https://travis-ci.org/matee911/lxml-wrapper
+    :alt: Build status
+
 .. image:: https://pypip.in/v/lxml-wrapper/badge.png
     :target: https://crate.io/packages/lxml-wrapper/
     :alt: Latest PyPI version
