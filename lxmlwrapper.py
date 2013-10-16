@@ -49,16 +49,19 @@ __VERSION__ = '0.3.5'
 
 from lxml import etree
 
+
 def E(_tag, attrib=None, nsmap=None, **_extra):
     return _make_elem(_tag, attrib, nsmap, **_extra)
-    
+
+
 def SE(elem, _tag, attrib=None, nsmap=None, **_extra):
     e = _make_elem(_tag, attrib, nsmap, **_extra)
     elem.append(e)
     return e
-    
+
+
 def _make_elem(_tag, attrib=None, nsmap=None, **_extra):
-    for k,v in _extra.items():
+    for k, v in _extra.items():
         if isinstance(v, (int, long, float)):
             v = str(v)
         elif v is None:
@@ -67,42 +70,42 @@ def _make_elem(_tag, attrib=None, nsmap=None, **_extra):
     _E.TAG = _tag
     return _E(**_extra)
 
+
 #
 # Main magick class
 #
-
 class _E(etree.ElementBase):
-    
+
     def add_if(self, condition, * elements):
         """Conditional add.
-        
+
         Add given elements only if condition is true.
         """
         if condition:
             return self.add(* elements)
         else:
             return self
-            
+
     def add_for(self, iterable, fun=lambda item: item):
         self.add(*[fun(item) for item in iterable])
         return self
-    
+
     def add(self, * elements):
         """You can add ElementTrees or strings or even integers now."""
-        
-        if not elements: # .add()
+
+        if not elements:  # .add()
             return self
-        
+
         prev_elem = None
         text_elems = []
-        
+
         for elem in elements:
-            if elem is None: # we don't like nones
+            if elem is None:  # we don't like nones
                 continue
 
             if isinstance(elem, (basestring)) and elem == '':
                 continue
-            
+
             if not isinstance(elem, (basestring, int, long, float)):
                 # we have elemettree
                 if prev_elem is not None:
@@ -128,12 +131,12 @@ class _E(etree.ElementBase):
                     elem = str(elem)
                 text_elems.append(elem)
         else:
-            if elem is None: # we don't like nones
+            if elem is None:  # we don't like nones
                 return self
 
             if isinstance(elem, (basestring)) and elem == '':
                 return self
-            
+
             if not isinstance(elem, (basestring, int, long, float)):
                 # last element isn't string
                 # so we shoud append it
@@ -150,6 +153,5 @@ class _E(etree.ElementBase):
                     if text_elems:
                         self.text = "".join(text_elems)
                     text_elems = []
-        
-        return self
 
+        return self
