@@ -8,6 +8,10 @@ lxml-wrapper
 .. image:: https://travis-ci.org/matee911/lxml-wrapper.png
     :target: https://travis-ci.org/matee911/lxml-wrapper
     :alt: Build status
+    
+.. image:: https://coveralls.io/repos/matee911/lxml-wrapper/badge.png?branch=master 
+    :target: https://coveralls.io/r/matee911/lxml-wrapper?branch=master
+    :alt: Coverage
 
 .. image:: https://pypip.in/v/lxml-wrapper/badge.png
     :target: https://crate.io/packages/lxml-wrapper/
