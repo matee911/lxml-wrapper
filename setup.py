@@ -8,7 +8,7 @@ setup(name='lxml-wrapper',
       version='0.3.6',
       license='BSD',
       url='http://github.com/matee911/lxml-wrapper', # home page for the package
-      download_url='http://github.com/matee911/lxml-wrapper/downloads',
+      download_url='https://github.com/matee911/lxml-wrapper/archive/0.3.6.tar.gz',
       author='Mateusz `matee` Pawlik',
       author_email='matee@matee.net',
       long_description='''
@@ -55,10 +55,11 @@ setup(name='lxml-wrapper',
       py_modules=['lxmlwrapper'],
       platforms=['Any'],
       classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
       ],)
 
