@@ -5,5 +5,9 @@ python:
   - "3.2"
   - "3.3"
   - "pypy"
-install: "pip install -r requirements.txt --use-mirrors"
-script: "python test.py"
+install: 
+  - "pip install -r requirements.txt --use-mirrors"
+  - "pip install coveralls --use-mirrors"
+script: "coverage run --source=lxmlwrapper test.py"
+after_success:
+  coveralls
