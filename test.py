@@ -92,6 +92,48 @@ class TestAddElement(unittest.TestCase):
         s = b'<root>text1text2<child/>tail1tail2</root>'
         self.assertEqual(to_s(e), s)
 
+    def test_add_empty_string(self):
+        e = E('root').add('t1' ,'', 't3')
+        s = b'<root>t1t3</root>'
+        self.assertEqual(to_s(e), s)
+
+    def test_add_number(self):
+        e = E('root').add(17)
+        s = b'<root>17</root>'
+        self.assertEqual(to_s(e), s)
+
+
+class TestAddIf(unittest.TestCase):
+    def test_true_condition(self):
+        e = E('root').add_if(True, E('SE'))
+        s = b'<root><SE/></root>'
+        self.assertEqual(to_s(e), s)
+
+        e = E('root').add_if(True, 'foo')
+        s = b'<root>foo</root>'
+        self.assertEqual(to_s(e), s)
+
+    def test_false_condition(self):
+        e = E('root').add_if(False, E('SE'))
+        s = b'<root/>'
+        self.assertEqual(to_s(e), s)
+
+        e = E('root').add_if(False, 'foo')
+        s = b'<root/>'
+        self.assertEqual(to_s(e), s)
+
+
+class TestAddFor(unittest.TestCase):
+    def test_iterable(self):
+        e = E('root').add_for(range(3), lambda i: E('foo%s' % i))
+        s = b'<root><foo0/><foo1/><foo2/></root>'
+        self.assertEqual(to_s(e), s)
+
+        e = E('root').add_for([], lambda i: E('foo%s' % i))
+        s = b'<root/>'
+        self.assertEqual(to_s(e), s)
+
+
 class TestSE(unittest.TestCase):
     """Testing subelement"""
     def test_add(self):

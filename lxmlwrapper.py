@@ -52,6 +52,7 @@ from lxml import etree
 try:
     basestring = basestring
 except NameError:
+    # basestring and long are unknown in python3 world
     basestring = (str, bytes)
     long = int
 
