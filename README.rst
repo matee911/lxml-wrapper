@@ -5,7 +5,7 @@ lxml-wrapper
 :Info: See `github <http://github.com/matee911/lxml-wrapper/>`_ for the latest source.
 :Author: matee
 
-.. image:: https://travis-ci.org/matee911/lxml-wrapper.png
+.. image:: https://travis-ci.org/matee911/lxml-wrapper.png?branch=master
     :target: https://travis-ci.org/matee911/lxml-wrapper
     :alt: Build status
     
