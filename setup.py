@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 
+from lxmlwrapper import __VERSION__
 from distutils.core import setup
 # http://pypi.python.org/pypi?%3Aaction=list_classifiers
 setup(name='lxml-wrapper',
       description='lxml wrapper that simplifies xml generation code.',
       keywords='lxml wrapper dsl',
-      version='0.3.7',
+      version=__VERSION__,
       license='BSD',
       url='http://github.com/matee911/lxml-wrapper', # home page for the package
-      download_url='https://github.com/matee911/lxml-wrapper/archive/0.3.7.tar.gz',
+      download_url='https://github.com/matee911/lxml-wrapper/archive/%s.tar.gz' % __VERSION__,
       author='Mateusz `matee` Pawlik',
       author_email='matee@matee.net',
       long_description=open('README.rst').read(),

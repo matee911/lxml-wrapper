@@ -45,9 +45,15 @@ root = E('root', atr=100).add(
        )
 """
 
-__VERSION__ = '0.3.5'
+__VERSION__ = '0.3.8'
 
 from lxml import etree
+
+try:
+    basestring = basestring
+except NameError:
+    basestring = (str, bytes)
+    long = int
 
 
 def E(_tag, attrib=None, nsmap=None, **_extra):
