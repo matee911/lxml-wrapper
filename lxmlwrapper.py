@@ -45,7 +45,7 @@ root = E('root', atr=100).add(
        )
 """
 
-__VERSION__ = '0.3.8'
+__VERSION__ = '0.4a'
 
 from lxml import etree
 
