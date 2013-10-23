@@ -2,8 +2,10 @@
 lxml-wrapper
 ============
 
-:Info: See `github <http://github.com/matee911/lxml-wrapper/>`_ for the latest source.
 :Author: matee
+:Source: See `github <http://github.com/matee911/lxml-wrapper/>`_ for the latest source.
+:Documentation: `lxml-wrapper@read-the-docs <http://lxml-wrapper.readthedocs.org/en/latest/>`_
+:BugTracker: `Github issues <https://github.com/matee911/lxml-wrapper/issues>`_
 
 .. image:: https://travis-ci.org/matee911/lxml-wrapper.png?branch=master
     :target: https://travis-ci.org/matee911/lxml-wrapper
