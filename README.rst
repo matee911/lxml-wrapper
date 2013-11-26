@@ -23,6 +23,10 @@ lxml-wrapper
     :target: https://crate.io/packages/lxml-wrapper/
     :alt: Number of PyPI downloads
 
+.. image:: https://d2weczhvl823v0.cloudfront.net/matee911/lxml-wrapper/trend.png
+    :target: https://bitdeli.com/free
+    :alt: Bitdeli Badge
+
 About
 =====
 
