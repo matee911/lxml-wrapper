@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 
 from lxmlwrapper import __VERSION__
-from distutils.core import setup
+
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
 # http://pypi.python.org/pypi?%3Aaction=list_classifiers
 setup(name='lxml-wrapper',
       description='lxml wrapper that simplifies xml generation code.',
